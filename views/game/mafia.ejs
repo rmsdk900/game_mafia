@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mafia 기본틀</title>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="mainDiv">
+        <div class="user_list"></div>
+        <div class="main_chat"></div>
+        <div class="main_input">
+          <input type="text" class="main_chat_text" />
+          <button class="main_chat_send">입력</button>
+        </div>
+      </div>
+      <div id="subDiv">
+        <div class="sub_chat"></div>
+        <div class="sub_input">
+          <input type="text" class="sub_chat_text" />
+          <button class="sub_chat_send">입력</button>
+        </div>
+      </div>
+      <div id="functionDiv">
+        <div id="vote"></div>
+        <div id="function">
+          <input type="button" class="readyButton" value="READY" />
+          <input type="button" class="voteButton" value="투표" />
+        </div>
+      </div>
+      <div id="informationDiv">
+        <table>
+          <thead>
+            <tr>
+              <td colspan="2">
+                <img src="/images/mafia.jpg" width="94px" height="94px" />
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="50">ID</td>
+              <td width="100">userID</td>
+            </tr>
+            <tr>
+              <td>닉네임</td>
+              <td><%= name%></td>
+            </tr>
+            <tr>
+              <td rowspan="2">전적</td>
+              <td>10승 10패</td>
+            </tr>
+            <tr>
+              <td>(50%)</td>
+            </tr>
+            <tr>
+              <td rowspan="2">마피아</td>
+              <td>1승 1패</td>
+            </tr>
+            <tr>
+              <td>(50%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 방에 이름 받고 소켓 연결신청만 여기서 하자자 -->
+    <script>
+      // 일단 투표버튼 안보이게
+      window.onload = () => {
+        document.querySelector(".voteButton").style.display = "none";
+      };
+      // 새로고침 막자
+      function doNotReload() {
+        if (
+          event.keyCode == 116 ||
+          (event.ctrlKey == true &&
+            (event.keyCode == 78 ||
+              event.keyCode == 82 ||
+              event.keyCode == 116))
+        ) {
+          alert("새로고침 안돼용!");
+          event.keyCode = 0;
+          event.cancelBubble = true;
+          event.returnValue = false;
+        }
+      }
+      document.onkeydown = doNotReload;
+      // 소켓 연결 부분
+      const socket = io();
+      socket.on("connect", () => {
+        const userName = `<%= name%>`;
+        // 소켓에 저장.
+        socket.name = userName;
+        console.log(`소켓 유저 이름 확인 1 : ${socket.name}`);
+        socket.emit("enterRoom", userName);
+      });
+      socket.on("interrupt", () => {
+        alert("이미 게임이 시작했습니다.");
+        history.go(-1);
+      });
+    </script>
+    <script src="/javascripts/notice.js"></script>
+    <script src="/javascripts/userList.js"></script>
+    <script src="/javascripts/vote.js"></script>
+    <script src="/javascripts/chatControl.js"></script>
+    <script src="/javascripts/gameStart.js"></script>
+  </body>
+</html>

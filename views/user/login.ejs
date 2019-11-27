@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LogIn</title>
+  </head>
+  <body>
+    <% if(session.uid){ %>
+    <h3>로그인에 성공하셨습니다 ~</h3>
+    <form action="/users/logout?_method=DELETE" method="post">
+      <input type="submit" value="로그아웃" />
+      <input type="button" onclick="enterRoom()" value="게임 입장" />
+    </form>
+    <%} else{ %>
+    <h3>로그인</h3>
+    <form action="/users/login" method="post">
+      <table>
+        <tr>
+          <td>아이디 :</td>
+          <td><input type="text" name="uid" /></td>
+        </tr>
+        <tr>
+          <td>비밀번호 :</td>
+          <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td>
+            <label><input type="checkbox" name="autoLogin" />자동 로그인</label>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="로그인" /></td>
+          <td>
+            <input
+              id="btntoSignup"
+              type="button"
+              onclick="gotoSignup()"
+              value="회원가입"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <%} %>
+  </body>
+  <script>
+    function gotoSignup() {
+      location.href = "sign_up";
+    }
+    function enterRoom() {
+      location.href = "/main";
+    }
+  </script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <input id="btntoLogin" type="button" value="게임 시작하기" />
+  </body>
+  <script>
+    window.onload = () => {
+      const gotoLogin = document.querySelector("#btntoLogin");
+      // 클릭하면 로그인 페이지로 넘어가자.
+      gotoLogin.addEventListener("click", () => {
+        location.href = "users/login";
+      });
+    };
+  </script>
+</html>
