@@ -162,6 +162,8 @@ module.exports = io => {
         // 메인채팅방 모두에게 열기, 투표권한 다 열기
         io.emit("canSpeak", userList[socket.name]);
         io.emit("unvoteable", userList);
+        // 색상 변경!
+        io.emit("colorInversion", "day");
       } else if (state == "night") {
         //flag 바꾸기
         day = false;
@@ -171,6 +173,8 @@ module.exports = io => {
         // 나중에 낮의 것이랑 통합시키자.
         io.emit("rightofMafia", userList);
         io.emit("whisper", userList);
+        // 색상 원래대로!
+        io.emit("colorInversion", "night");
       }
     });
 
@@ -449,12 +453,16 @@ module.exports = io => {
       console.log(userList);
       // socketList에서도 삭제
       delete idList[socket.name];
-
+      // 모두다 나가면 playing=false;
+      if (Object.keys(userList).length == 0) {
+        playing = false;
+      }
       // 유저 목록이랑 아이콘 뿌리기.
       io.emit("makeList", userList);
       // 게임 중에만 나갔을 때 아이콘 변경 가능! 내가 게임 중에 나간다면?
       if (playing) {
         io.emit("makeIcon", userList);
+        io.emit("nowAlive", userList);
       }
     });
   });

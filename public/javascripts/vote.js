@@ -1,5 +1,5 @@
 // icon 컨테이너랑 버튼
-const iconBoard = document.querySelector("#vote");
+const iconBoard = document.querySelector(".vote");
 const btnVote = document.querySelector(".voteButton");
 // 투표할 이름
 let candidate = "";

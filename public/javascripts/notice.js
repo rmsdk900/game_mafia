@@ -123,7 +123,7 @@ socket.on("victory", (winner, userList) => {
   document.querySelector(".voteButton").style.display = "none";
   document.querySelector(".readyButton").style.display = "block";
   // 아이콘도 청소
-  const iconBoard = document.querySelector("#vote");
+  const iconBoard = document.querySelector(".vote");
   while (iconBoard.hasChildNodes()) {
     iconBoard.removeChild(iconBoard.firstChild);
   }

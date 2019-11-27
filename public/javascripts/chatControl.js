@@ -130,6 +130,7 @@ socket.on("canSpeak", data => {
     // 유령
   } else {
     inputMainText.disabled = true;
+    inputSubText.disabled = false;
   }
 });
 /**
@@ -145,6 +146,10 @@ socket.on("whisper", userList => {
   } else if (userList[socket.name].role == 1) {
     inputSubText.disabled = true;
     inputMainText.disabled = true;
+  }
+  // 시체는 열어줘야지..
+  if (userList[socket.name].alive == false) {
+    inputSubText.disabled = false;
   }
 });
 

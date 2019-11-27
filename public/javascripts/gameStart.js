@@ -33,3 +33,10 @@ socket.on("startSignal", data => {
   // 버튼 활성화
   btnReady.disabled = false;
 });
+socket.on("colorInversion", state => {
+  if (state == "night") {
+    // 하나만 실험해보자.
+    // wrap.id = "wrap-dark";
+  } else if (state == "day") {
+  }
+});

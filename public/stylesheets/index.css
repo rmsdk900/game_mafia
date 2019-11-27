@@ -1,29 +1,31 @@
 div {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-spacing: 0;
 }
 
-#wrap {
+.wrap {
   width: 1000px;
   height: 700px;
   background-color: lightgreen;
+  border: 1px solid black;
 }
 
-#mainDiv {
+.mainDiv {
   margin: 10px 5px 5px 10px;
   width: 682px;
   height: 382px;
   background-color: pink;
   float: left;
+  border: 1px solid black;
 }
-#mainDiv .user_list {
+.mainDiv .user_list {
   border: 0px;
   border-right: 1px solid black;
   width: 130px;
   height: 382px;
   float: left;
 }
-#mainDiv .main_chat {
+.mainDiv .main_chat {
   border: 0;
   width: 551px;
   height: 350px;
@@ -31,7 +33,7 @@ div {
   overflow-y: auto;
 }
 
-#mainDiv .main_input {
+.mainDiv .main_input {
   border: 0px;
   border-top: 1px solid black;
   width: 551px;
@@ -39,34 +41,36 @@ div {
   float: left;
 }
 
-#subDiv {
+.subDiv {
   margin: 10px 10px 5px 5px;
   width: 282px;
   height: 382px;
   background-color: skyblue;
   float: left;
+  border: 1px solid black;
 }
-#subDiv .sub_chat {
+.subDiv .sub_chat {
   width: 282px;
   height: 350px;
   border: 0px;
   overflow-y: auto;
 }
-#subDiv .sub_input {
+.subDiv .sub_input {
   border: 0px;
   border-top: 1px solid black;
   width: 282px;
   height: 31px;
 }
 
-#functionDiv {
+.functionDiv {
   margin: 5px 5px 10px 10px;
   width: 782px;
   height: 282px;
   background-color: white;
   float: left;
+  border: 1px solid black;
 }
-#functionDiv #vote {
+.functionDiv .vote {
   border: 0;
   width: 564px;
   height: 282px;
@@ -111,7 +115,7 @@ div {
   border: 0;
   width: 94px;
   height: 94px;
-  background-image: url("../images/undead.jpg");
+  background-image: url("../images/ghost.png");
   background-size: 100%;
   background-repeat: no-repeat;
   opacity: 0.5;
@@ -121,33 +125,34 @@ div {
   align-items: flex-end;
 }
 
-#functionDiv #function {
+.functionDiv .function {
   border: 0;
   width: 218px;
   height: 282px;
   background-color: lightgray;
   float: left;
 }
-#functionDiv #function .voteButton {
+.functionDiv .function .voteButton {
   margin: 5px;
   width: 208px;
   height: 100px;
 }
 
-#functionDiv #function .readyButton {
+.functionDiv .function .readyButton {
   margin: 5px;
   width: 208px;
   height: 100px;
 }
 
-#informationDiv {
+.informationDiv {
   margin: 5px 10px 10px 5px;
   width: 182px;
   height: 282px;
   background-color: yellow;
   float: left;
+  border: 1px solid black;
 }
-#informationDiv table {
+.informationDiv table {
   margin: 0 auto;
 }
 /* 여기부턴 공지나 채팅 영역 */
@@ -193,7 +198,7 @@ div {
   margin: 5px;
   text-align: right;
   float: right;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .other {
@@ -201,9 +206,124 @@ div {
   width: 70%;
   margin: 5px;
   float: left;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 /* 밤일 때 야간모드 */
-.div_dark {
+
+.wrap-dark {
+  width: 1000px;
+  height: 700px;
+  background-color: rgb(58, 95, 58);
+  border: 1px solid rgb(255, 255, 255);
 }
+
+.mainDiv-dark {
+  margin: 10px 5px 5px 10px;
+  width: 682px;
+  height: 382px;
+  background-color: rgb(110, 84, 88);
+  float: left;
+  border: 1px solid rgb(255, 255, 255);
+}
+.mainDiv .user_list-dark {
+  border: 0px;
+  border-right: 1px solid rgb(255, 255, 255);
+  width: 130px;
+  height: 382px;
+  float: left;
+}
+
+.mainDiv .main_input-dark {
+  border: 0px;
+  border-top: 1px solid rgb(255, 255, 255);
+  width: 551px;
+  height: 31px;
+  float: left;
+}
+
+.subDiv-dark {
+  margin: 10px 10px 5px 5px;
+  width: 282px;
+  height: 382px;
+  background-color: rgb(57, 87, 99);
+  float: left;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.subDiv .sub_input-dark {
+  border: 0px;
+  border-top: 1px solid rgb(255, 255, 255);
+  width: 282px;
+  height: 31px;
+}
+
+.functionDiv-dark {
+  margin: 5px 5px 10px 10px;
+  width: 782px;
+  height: 282px;
+  background-color: rgb(0, 0, 0);
+  float: left;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.nameTag-dark {
+  border: 0;
+  color: rgb(0, 0, 0);
+}
+.user-dark {
+  border: 0;
+  width: 94px;
+  height: 94px;
+  background-image: url("../images/mafia-dark.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.user-dark:hover {
+  cursor: pointer;
+}
+
+#selectedUser-dark {
+  border: 0;
+  width: 94px;
+  height: 94px;
+  background-image: url("../images/mafia-dark.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 1;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.undead-dark {
+  border: 0;
+  width: 94px;
+  height: 94px;
+  background-image: url("../images/ghost-dark.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.informationDiv-dark {
+  margin: 5px 10px 10px 5px;
+  width: 182px;
+  height: 282px;
+  background-color: rgb(136, 136, 0);
+  float: left;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+/* 여기부턴 공지나 채팅 영역 */
