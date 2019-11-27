@@ -226,15 +226,16 @@ div {
   float: left;
   border: 1px solid rgb(255, 255, 255);
 }
-.mainDiv .user_list-dark {
+.user_list-dark {
   border: 0px;
   border-right: 1px solid rgb(255, 255, 255);
+  color: white;
   width: 130px;
   height: 382px;
   float: left;
 }
 
-.mainDiv .main_input-dark {
+.main_input-dark {
   border: 0px;
   border-top: 1px solid rgb(255, 255, 255);
   width: 551px;
@@ -251,7 +252,7 @@ div {
   border: 1px solid rgb(255, 255, 255);
 }
 
-.subDiv .sub_input-dark {
+.sub_input-dark {
   border: 0px;
   border-top: 1px solid rgb(255, 255, 255);
   width: 282px;
@@ -324,6 +325,14 @@ div {
   background-color: rgb(136, 136, 0);
   float: left;
   border: 1px solid rgb(255, 255, 255);
+}
+
+.function-dark {
+  border: 0;
+  width: 218px;
+  height: 282px;
+  background-color: rgb(77, 77, 77);
+  float: left;
 }
 
 /* 여기부턴 공지나 채팅 영역 */

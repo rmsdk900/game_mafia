@@ -34,9 +34,40 @@ socket.on("startSignal", data => {
   btnReady.disabled = false;
 });
 socket.on("colorInversion", state => {
+  const body = document.getElementsByTagName("body")[0];
+  const wrap = document.querySelector(".wrap");
+  const mainDiv = document.querySelector(".mainDiv");
+  const userList = document.querySelector(".user_list");
+  const mainInput = document.querySelector(".main_input");
+  const subDiv = document.querySelector(".subDiv");
+  const subInput = document.querySelector(".sub_input");
+  const functionDiv = document.querySelector(".functionDiv");
+  const fun = document.querySelector(".function");
+  const informationDiv = document.querySelector(".informationDiv");
+
+  // 여러 개
+
   if (state == "night") {
-    // 하나만 실험해보자.
-    // wrap.id = "wrap-dark";
+    body.style.backgroundColor = "black";
+    wrap.classList.add("wrap-dark");
+    mainDiv.classList.add("mainDiv-dark");
+    userList.classList.add("user_list-dark");
+    mainInput.classList.add("main_input-dark");
+    subDiv.classList.add("subDiv-dark");
+    subInput.classList.add("sub_input-dark");
+    functionDiv.classList.add("functionDiv-dark");
+    fun.classList.add("function-dark");
+    informationDiv.classList.add("informationDiv-dark");
   } else if (state == "day") {
+    body.style.backgroundColor = "";
+    wrap.classList.remove("wrap-dark");
+    mainDiv.classList.remove("mainDiv-dark");
+    userList.classList.remove("user_list-dark");
+    mainInput.classList.remove("main_input-dark");
+    subDiv.classList.remove("subDiv-dark");
+    subInput.classList.remove("sub_input-dark");
+    functionDiv.classList.remove("functionDiv-dark");
+    fun.classList.remove("function-dark");
+    informationDiv.classList.remove("informationDiv-dark");
   }
 });

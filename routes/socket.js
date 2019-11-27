@@ -171,7 +171,7 @@ module.exports = io => {
         io.to("mafia").emit("onlyCitizenIcon", userList);
         // 다른 애들은 투표 못하게 하고, 메인 채팅 닫고, 마피아 채팅 열기
         // 나중에 낮의 것이랑 통합시키자.
-        io.emit("rightofMafia", userList);
+        io.to("mafia").emit("rightofMafia", userList);
         io.emit("whisper", userList);
         // 색상 원래대로!
         io.emit("colorInversion", "night");
@@ -462,7 +462,7 @@ module.exports = io => {
       // 게임 중에만 나갔을 때 아이콘 변경 가능! 내가 게임 중에 나간다면?
       if (playing) {
         io.emit("makeIcon", userList);
-        io.emit("nowAlive", userList);
+        nowCheck();
       }
     });
   });
